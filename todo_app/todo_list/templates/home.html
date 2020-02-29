@@ -6,6 +6,8 @@
     <title>Django app</title>
 </head>
 <body>
-    <h1>hello world</h1>
+    {% block content %}
+        <h1>{{ todo_list }}</h1>
+    {% endblock %}
 </body>
 </html>
