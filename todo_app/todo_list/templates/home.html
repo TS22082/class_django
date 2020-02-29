@@ -7,7 +7,20 @@
 </head>
 <body>
     {% block content %}
-        <h1>{{ todo_list }}</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="item" placeholder="add todo">
+            <button type="submit"> Submit </button>
+
+        </form>
+
+        {% for todos in todo_list %}
+
+            <h1>{{ todos.item }}</h1>
+            <a href="{% url 'delete' todos.id %}">Delete</a>
+
+        {% endfor %}
     {% endblock %}
 </body>
 </html>
